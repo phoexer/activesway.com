@@ -1,8 +1,5 @@
 pipeline {
-    agent {
-        node {
-            label 'activesway'
-        }
+    agent node
     }
     stages {
         stage('Build') {
