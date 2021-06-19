@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent docker
     stages {
         stage('Build') {
             steps {
@@ -13,4 +13,12 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            setBuildStatus("Build succeeded", "SUCCESS");
+        }
+        failure {
+            setBuildStatus("Build failed", "FAILURE");
+        }
+      }
 }
